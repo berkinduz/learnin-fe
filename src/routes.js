@@ -19,6 +19,11 @@ export const routes = [
     component: Auth,
     component: () => import('./views/Auth.vue'),
   },
+  {
+    path: '/profile',
+    component: Auth,
+    component: () => import('./views/Profile.vue'),
+  },
   { path: '/', component: Home, meta: { title: 'Home' } },
 
   { path: '/:path(.*)', component: NotFound },
