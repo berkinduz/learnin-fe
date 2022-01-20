@@ -39,12 +39,10 @@
           "
         />
       </div>
-
       <button
         type="submit"
         :disabled="password.length < 3"
         class="bg-green-400 p-5 text-white"
-        href="/"
       >
         Login
       </button>
@@ -77,6 +75,7 @@ export default {
         const { jwt, user } = res.data;
         window.localStorage.setItem("jwt", jwt);
         window.localStorage.setItem("userData", JSON.stringify(user));
+        this.$router.push("/");
       } catch (error) {
         this.error = true;
         console.log(error);
