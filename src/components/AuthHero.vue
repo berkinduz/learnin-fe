@@ -123,9 +123,14 @@
                     >
                       <ul class="py-1">
                         <li>
-                          <a href="#" class="block px-4 py-2 hover:bg-gray-100">
-                            Profile
-                          </a>
+                          <router-link to="/profile">
+                            <a
+                              href="#"
+                              class="block px-4 py-2 hover:bg-gray-100"
+                            >
+                              Profile
+                            </a>
+                          </router-link>
                         </li>
                         <li>
                           <a href="#" class="block px-4 py-2 hover:bg-gray-100">

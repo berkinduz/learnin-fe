@@ -8,7 +8,7 @@
       />
     </div>
     <div class="text-center px-3 pb-6 pt-2">
-      <h3 class="text-white text-sm bold font-sans">Olivia Dunham</h3>
+      <h3 class="text-white text-sm bold font-sans">{{ username }}</h3>
       <p class="mt-2 font-sans font-light text-white">
         Hello, i'm from another the other side!
       </p>
