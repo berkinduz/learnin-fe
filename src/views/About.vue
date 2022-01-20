@@ -1,7 +1,9 @@
 <script setup>
+import Header from "../components/Header.vue";
 </script>
 
 <template>
+  <Header />
   <section class="text-gray-600 body-font">
     <div class="container px-1 py-5 mx-auto">
       <div
@@ -42,8 +44,21 @@
         <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">
           Berkin DUZ
         </h2>
-        <p class="text-gray-500">Junior Software Developer</p>
       </div>
     </div>
   </section>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      posts: [],
+      errors: [],
+      image: "http://localhost:1337",
+    };
+  },
+  methods: {},
+};
+</script>
