@@ -14,6 +14,29 @@
       </div>
     </li>
   </ul> -->
+  <div>
+    <ul class="flex justify-center">
+      <li v-for="category of categories.data" :key="category.id">
+        <button
+          class="
+            bg-transparent
+            hover:bg-blue-500
+            text-blue-700
+            font-semibold
+            hover:text-white
+            py-2
+            px-4
+            border border-blue-500
+            hover:border-transparent
+            rounded
+          "
+          @click="showPost(category.attributes.category_name)"
+        >
+          {{ category.attributes.category_name }}
+        </button>
+      </li>
+    </ul>
+  </div>
   <ul class="flex flex-wrap justify-center mt-10 -m-4 py-24" id="cards-section">
     <li v-for="post of posts.data" :key="post.id" class="p-20 md:w-1/3">
       <div
@@ -101,16 +124,29 @@
 import axios from "axios";
 export default {
   created() {
+    this.getCategories();
     this.getPosts();
   },
   data() {
     return {
       posts: [],
+      categories: [],
       errors: [],
+      filtered: [],
       image: "http://localhost:1337",
     };
   },
   methods: {
+    async getCategories() {
+      await axios
+        .get("http://localhost:1337/api/categories?populate=*")
+        .then((response) => {
+          this.categories = response.data;
+        })
+        .catch((error) => {
+          this.errors.push(error);
+        });
+    },
     getPosts() {
       axios
         .get("http://localhost:1337/api/courses?populate=*")
@@ -120,6 +156,16 @@ export default {
         .catch((error) => {
           this.errors.push(error);
         });
+    },
+    showPost(e) {
+      console.log(e);
+      this.filtered = this.posts.data.filter((post) => {
+        return (
+          post.attributes.categories.data[0].attributes.category_name === e
+        );
+      });
+      console.log("Filtered: ", this.filtered);
+      console.log("Posts: ", this.posts);
     },
   },
 };
