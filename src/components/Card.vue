@@ -15,7 +15,15 @@
     </li>
   </ul> -->
   <div>
-    <ul class="flex justify-center" id="category-section">
+    <ul
+      class="
+        lg:flex lg:flex-row lg:justify-center
+        flex flex-col
+        justify-center
+        items-center
+      "
+      id="category-section"
+    >
       <button
         class="
           text-gray-900
