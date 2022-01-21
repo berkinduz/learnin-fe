@@ -16,6 +16,23 @@
   </ul> -->
   <div>
     <ul class="flex justify-center" id="category-section">
+      <button
+        class="
+          bg-transparent
+          hover:bg-blue-500
+          text-blue-700
+          font-semibold
+          hover:text-white
+          py-2
+          px-4
+          border border-blue-500
+          hover:border-transparent
+          rounded
+        "
+        @click="showPost('all')"
+      >
+        ALL
+      </button>
       <li v-for="category of categories.data" :key="category.id">
         <button
           class="
@@ -148,7 +165,7 @@ export default {
           this.errors.push(error);
         });
     },
-    getPosts(e) {
+    getPosts() {
       axios
         .get("http://localhost:1337/api/courses?populate=*")
         .then((response) => {
@@ -159,15 +176,25 @@ export default {
         });
     },
     showPost(e) {
-      console.log(e);
-      this.filtered = this.posts.data.filter((post) => {
-        return (
-          post.attributes.categories.data[0].attributes.category_name === e
-        );
-      });
-      this.posts.data = this.filtered;
-      console.log("Filtered: ", this.filtered);
-      console.log("Posts: ", this.posts);
+      if (e === "all") {
+        this.getPosts();
+      } else {
+        axios
+          .get("http://localhost:1337/api/courses?populate=*")
+          .then((response) => {
+            this.posts = response.data;
+            this.filtered = this.posts.data.filter((post) => {
+              return (
+                post.attributes.categories.data[0].attributes.category_name ===
+                e
+              );
+            });
+            this.posts.data = this.filtered;
+          })
+          .catch((error) => {
+            this.errors.push(error);
+          });
+      }
     },
   },
 };
