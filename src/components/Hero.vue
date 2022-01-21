@@ -133,7 +133,7 @@
                   <div>
                     <img
                       class="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      src="../../public/assets/mortarboard.png"
                       alt=""
                     />
                   </div>
@@ -178,7 +178,7 @@
                   >
                 </div>
                 <a
-                  href="#"
+                  href="/auth"
                   class="
                     block
                     w-full
