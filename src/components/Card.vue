@@ -81,6 +81,8 @@
           rounded-lg
           overflow-hidden
           shadow-2xl
+          image-card
+          perspective-left
         "
       >
         <img :src="image + post.attributes.course_img.data.attributes.url" />
@@ -217,3 +219,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.image-card {
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.perspective-left {
+  transform: perspective(1500px) rotateY(15deg);
+  transition: transform 1s ease 0s;
+}
+
+.perspective-left:hover {
+  transform: perspective(3000px) rotateY(5deg);
+}
+</style>
