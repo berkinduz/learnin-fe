@@ -15,7 +15,7 @@
     </li>
   </ul> -->
   <div>
-    <ul class="flex justify-center">
+    <ul class="flex justify-center" id="category-section">
       <li v-for="category of categories.data" :key="category.id">
         <button
           class="
@@ -133,6 +133,7 @@ export default {
       categories: [],
       errors: [],
       filtered: [],
+
       image: "http://localhost:1337",
     };
   },
@@ -147,7 +148,7 @@ export default {
           this.errors.push(error);
         });
     },
-    getPosts() {
+    getPosts(e) {
       axios
         .get("http://localhost:1337/api/courses?populate=*")
         .then((response) => {
@@ -164,6 +165,7 @@ export default {
           post.attributes.categories.data[0].attributes.category_name === e
         );
       });
+      this.posts.data = this.filtered;
       console.log("Filtered: ", this.filtered);
       console.log("Posts: ", this.posts);
     },
