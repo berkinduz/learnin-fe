@@ -73,7 +73,11 @@
     </ul>
   </div>
   <ul class="flex flex-wrap justify-center mt-0 -m-4 py-4" id="cards-section">
-    <li v-for="post of posts.data" :key="post.id" class="p-20 md:w-1/3">
+    <li
+      v-for="post of posts.data"
+      :key="post.id"
+      class="p-20 md:w-1/3 card-container"
+    >
       <div
         class="
           h-full
@@ -81,6 +85,8 @@
           rounded-lg
           overflow-hidden
           shadow-2xl
+          image-card
+          perspective-left
         "
       >
         <img :src="image + post.attributes.course_img.data.attributes.url" />
@@ -217,3 +223,17 @@ export default {
   },
 };
 </script>
+<style scoped>
+.image-card {
+  border-radius: 2rem;
+}
+
+.perspective-left {
+  transform: perspective(1500px) rotateY(15deg);
+  transition: transform 1s ease 0s;
+}
+
+.perspective-left:hover {
+  transform: perspective(3000px) rotateY(5deg);
+}
+</style>
