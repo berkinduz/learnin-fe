@@ -16,19 +16,46 @@
   </ul> -->
   <div>
     <ul class="flex justify-center" id="category-section">
+      <button
+        class="
+          text-gray-900
+          bg-gradient-to-r
+          from-teal-200
+          to-lime-200
+          hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200
+          focus:ring-4 focus:ring-lime-200
+          dark:focus:ring-teal-700
+          font-medium
+          rounded-lg
+          text-sm
+          px-5
+          py-4
+          text-center
+          mr-2
+          mb-2
+        "
+        @click="showPost('all')"
+      >
+        ALL
+      </button>
       <li v-for="category of categories.data" :key="category.id">
         <button
           class="
-            bg-transparent
-            hover:bg-blue-500
-            text-blue-700
-            font-semibold
-            hover:text-white
-            py-2
-            px-4
-            border border-blue-500
-            hover:border-transparent
-            rounded
+            text-white
+            bg-gradient-to-br
+            from-pink-500
+            to-orange-400
+            hover:bg-gradient-to-bl
+            focus:ring-4 focus:ring-pink-200
+            dark:focus:ring-pink-800
+            font-medium
+            rounded-lg
+            text-sm
+            px-5
+            py-4
+            text-center
+            mr-2
+            mb-2
           "
           @click="showPost(category.attributes.category_name)"
         >
@@ -37,7 +64,7 @@
       </li>
     </ul>
   </div>
-  <ul class="flex flex-wrap justify-center mt-10 -m-4 py-24" id="cards-section">
+  <ul class="flex flex-wrap justify-center mt-0 -m-4 py-4" id="cards-section">
     <li v-for="post of posts.data" :key="post.id" class="p-20 md:w-1/3">
       <div
         class="
@@ -148,7 +175,7 @@ export default {
           this.errors.push(error);
         });
     },
-    getPosts(e) {
+    getPosts() {
       axios
         .get("http://localhost:1337/api/courses?populate=*")
         .then((response) => {
@@ -159,15 +186,25 @@ export default {
         });
     },
     showPost(e) {
-      console.log(e);
-      this.filtered = this.posts.data.filter((post) => {
-        return (
-          post.attributes.categories.data[0].attributes.category_name === e
-        );
-      });
-      this.posts.data = this.filtered;
-      console.log("Filtered: ", this.filtered);
-      console.log("Posts: ", this.posts);
+      if (e === "all") {
+        this.getPosts();
+      } else {
+        axios
+          .get("http://localhost:1337/api/courses?populate=*")
+          .then((response) => {
+            this.posts = response.data;
+            this.filtered = this.posts.data.filter((post) => {
+              return (
+                post.attributes.categories.data[0].attributes.category_name ===
+                e
+              );
+            });
+            this.posts.data = this.filtered;
+          })
+          .catch((error) => {
+            this.errors.push(error);
+          });
+      }
     },
   },
 };
