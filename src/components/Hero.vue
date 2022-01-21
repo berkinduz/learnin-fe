@@ -349,7 +349,7 @@ import { MenuIcon, XIcon } from "@heroicons/vue/outline";
 
 const navigation = [
   { name: "Courses", href: "#" },
-  { name: "Categories", href: "#" },
+  { name: "Categories", href: "#category-section" },
   { name: "Contact", href: "#" },
   { name: "About Us", href: "/about" },
 ];
