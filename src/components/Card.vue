@@ -18,16 +18,21 @@
     <ul class="flex justify-center" id="category-section">
       <button
         class="
-          bg-transparent
-          hover:bg-blue-500
-          text-blue-700
-          font-semibold
-          hover:text-white
-          py-2
-          px-4
-          border border-blue-500
-          hover:border-transparent
-          rounded
+          text-gray-900
+          bg-gradient-to-r
+          from-teal-200
+          to-lime-200
+          hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200
+          focus:ring-4 focus:ring-lime-200
+          dark:focus:ring-teal-700
+          font-medium
+          rounded-lg
+          text-sm
+          px-5
+          py-4
+          text-center
+          mr-2
+          mb-2
         "
         @click="showPost('all')"
       >
@@ -36,16 +41,21 @@
       <li v-for="category of categories.data" :key="category.id">
         <button
           class="
-            bg-transparent
-            hover:bg-blue-500
-            text-blue-700
-            font-semibold
-            hover:text-white
-            py-2
-            px-4
-            border border-blue-500
-            hover:border-transparent
-            rounded
+            text-white
+            bg-gradient-to-br
+            from-pink-500
+            to-orange-400
+            hover:bg-gradient-to-bl
+            focus:ring-4 focus:ring-pink-200
+            dark:focus:ring-pink-800
+            font-medium
+            rounded-lg
+            text-sm
+            px-5
+            py-4
+            text-center
+            mr-2
+            mb-2
           "
           @click="showPost(category.attributes.category_name)"
         >
@@ -54,7 +64,7 @@
       </li>
     </ul>
   </div>
-  <ul class="flex flex-wrap justify-center mt-10 -m-4 py-24" id="cards-section">
+  <ul class="flex flex-wrap justify-center mt-0 -m-4 py-4" id="cards-section">
     <li v-for="post of posts.data" :key="post.id" class="p-20 md:w-1/3">
       <div
         class="
