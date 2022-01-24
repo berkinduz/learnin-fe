@@ -3,6 +3,7 @@ import About from './views/About.vue'
 import NotFound from './views/NotFound.vue'
 import Auth from './views/Auth.vue'
 import CourseDetail from './views/CourseDetail.vue'
+import ShoppingCart from './views/ShoppingCart.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -29,6 +30,12 @@ export const routes = [
     path: '/courses/:id/details',
     name: 'details',
     component: CourseDetail,
+    props: true,
+  },
+  {
+    path: '/buy/',
+    name: 'buy',
+    component: ShoppingCart,
     props: true,
   },
   { path: '/', component: Home, meta: { title: 'Home' } },
