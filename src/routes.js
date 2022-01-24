@@ -2,6 +2,7 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import NotFound from './views/NotFound.vue'
 import Auth from './views/Auth.vue'
+import CourseDetail from './views/CourseDetail.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -23,6 +24,12 @@ export const routes = [
     path: '/profile',
     component: Auth,
     component: () => import('./views/Profile.vue'),
+  },
+  {
+    path: '/courses/:id/details',
+    name: 'details',
+    component: CourseDetail,
+    props: true,
   },
   { path: '/', component: Home, meta: { title: 'Home' } },
 
