@@ -14,12 +14,12 @@
       >
         <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
           <div class="flex items-center justify-between w-full md:w-auto">
-            <a href="#">
+            <router-link to="/">
               <img
                 class="h-8 w-auto sm:h-10"
                 src="../../public/assets/mortarboard.png"
               />
-            </a>
+            </router-link>
             <div class="-mr-2 flex items-center md:hidden">
               <PopoverButton
                 class="
