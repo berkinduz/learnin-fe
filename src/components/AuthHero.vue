@@ -279,7 +279,7 @@
               ><br />
               {{ " " }}
               <span class="block text-indigo-600 xl:inline"
-                >Welcome {{ username }}</span
+                >Welcome Again :)</span
               >
             </h1>
             <p

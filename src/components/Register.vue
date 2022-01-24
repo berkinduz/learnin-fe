@@ -77,7 +77,7 @@
       <button
         type="submit"
         :disabled="
-          name.length < 6 || password.length < 6 || username.length < 3
+          name.length < 2 || password.length < 6 || username.length < 3
         "
         class="bg-green-400 p-5 text-white"
       >
@@ -105,13 +105,13 @@ export default {
     async register(e) {
       try {
         e.preventDefault();
-        await axios.post(`http://localhost:1337/auth/local/register`, {
+        await axios.post(`http://localhost:1337/api/auth/local/register`, {
           name: this.name,
           password: this.password,
           email: this.email,
           username: this.username,
         });
-        this.$router.push("login");
+        this.$router.push("/");
       } catch (e) {
         this.error = true;
         this.email = "";
