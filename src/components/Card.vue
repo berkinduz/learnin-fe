@@ -89,7 +89,9 @@
           perspective-left
         "
       >
-        <img :src="image + post.attributes.course_img.data.attributes.url" />
+        <router-link :to="{ name: 'details', params: { id: post.id } }">
+          <img :src="image + post.attributes.course_img.data.attributes.url"
+        /></router-link>
         <div class="p-6">
           <h2
             class="
@@ -110,21 +112,23 @@
             {{ post.attributes.course_desc }}
           </p>
           <div class="flex items-center flex-wrap">
-            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-              >Learn More
-              <svg
-                class="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
+            <router-link :to="{ name: 'details', params: { id: post.id } }">
+              <a
+                class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+                >Learn More
+                <svg
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg> </a
+            ></router-link>
             <span
               class="
                 text-gray-400
