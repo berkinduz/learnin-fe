@@ -1,10 +1,10 @@
 <script setup>
-import ProfileCard from "../components/ProfileCard.vue";
+import CardList from "../components/CardList.vue";
+import Header from "../components/Header.vue";
 </script>
 
 
 <template>
-  <div class="flex w-screen m-4 justify-center align-items-center">
-    <ProfileCard />
-  </div>
+  <Header />
+  <CardList />
 </template>
