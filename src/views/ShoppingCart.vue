@@ -1,6 +1,10 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="flex justify-center mt-20">
+  <div v-show="!login">
+    <p>You Must Be Login First.</p>
+    <button>Login / Register</button>
+  </div>
+  <div v-show="login" :key="reRender" class="flex justify-center mt-20">
     <div id="summary" class="w-1/3 px-8 py-10 border">
       <h1 class="font-bold text-3xl border-b pb-8 text-center">
         Order Summary
@@ -42,13 +46,17 @@ import axios from "axios";
 export default {
   created() {
     this.getCourse();
+    this.checkBalance();
   },
+  setup() {},
   data() {
     return {
       courseId: this.$route.params.id,
       course: "",
       image: "http://localhost:1337",
-      balance: JSON.parse(localStorage.getItem("userData")).user_wallet,
+      balance: "",
+      login: false,
+      reRender: false,
     };
   },
   methods: {
@@ -62,6 +70,15 @@ export default {
         .catch((error) => {
           this.errors.push(error);
         });
+    },
+    checkBalance() {
+      if (!JSON.parse(localStorage.getItem("userData"))) {
+        this.login = false;
+        this.$router.push("/auth");
+      } else {
+        this.balance = JSON.parse(localStorage.getItem("userData")).user_wallet;
+        this.login = true;
+      }
     },
   },
 };
