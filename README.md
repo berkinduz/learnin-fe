@@ -1,4 +1,5 @@
 # ⚡ Vite + Vue 3 + Tailwind CSS ✔
+## LearnIN Education Platform by Berkin Duz
 
 ![Vite, Vue, Tailwind CSS](https://user-images.githubusercontent.com/11320080/111277027-a9384c00-8640-11eb-8323-21889bd7c609.png)
 
@@ -13,6 +14,8 @@ This starter template includes:
 - [Heroicons](https://github.com/tailwindlabs/heroicons#vue) - beautiful hand-crafted SVG icons,
 by the makers of Tailwind CSS
 
+![image](https://user-images.githubusercontent.com/64802864/174562369-2f9d3b94-770f-4a05-9a19-9667f0cca31f.png)
+
 First-party plugins needed for Tailwind UI:
 
 - [tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)
@@ -20,14 +23,7 @@ First-party plugins needed for Tailwind UI:
 - [tailwindcss/line-clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 - [tailwindcss/aspect-ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 
-### Getting Started
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/web2033/vite-vue3-tailwind-starter)
-
-```sh
-npx degit web2033/vite-vue3-tailwind-starter vvt-app
-cd vvt-app
-```
 
 ```sh
 npm i
@@ -35,5 +31,3 @@ npm run dev
 npm run build
 npm run serve
 ```
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/web2033/vite-vue3-tailwind-starter)
